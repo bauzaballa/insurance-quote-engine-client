@@ -1,0 +1,197 @@
+// -- Entrance animations (play once on mount) --
+
+@keyframes tooltipPopIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.4) translateY(12px);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.08) translateY(-3px);
+  }
+
+  72% {
+    transform: scale(0.96) translateY(1px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes characterBounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0) translateY(30px) rotate(-12deg);
+  }
+
+  35% {
+    opacity: 1;
+    transform: scale(1.25) translateY(-8px) rotate(6deg);
+  }
+
+  55% {
+    transform: scale(0.9) translateY(4px) rotate(-4deg);
+  }
+
+  75% {
+    transform: scale(1.08) translateY(-2px) rotate(2deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0) rotate(0deg);
+  }
+}
+
+@keyframes arrowFadeIn {
+  0% {
+    opacity: 0;
+    transform: scaleY(0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+// -- Close animation --
+
+@keyframes tooltipFadeOut {
+  0% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(0.85) translateY(8px);
+  }
+}
+
+// -- Component styles --
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  animation: tooltipPopIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.noAnimation {
+  animation: none;
+  opacity: 1;
+  transform: scale(1) translateY(0);
+
+  .tooltipArrow {
+    animation: none;
+    opacity: 1;
+    transform: scaleY(1);
+  }
+
+  .tooltipIcon {
+    animation: none;
+    opacity: 1;
+    transform: scale(1) translateY(0) rotate(0deg);
+  }
+}
+
+.closing {
+  animation: tooltipFadeOut 0.25s ease-in forwards;
+  pointer-events: none;
+}
+
+.closed {
+  visibility: hidden;
+}
+
+.tooltipArrow {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 11.5px solid transparent;
+  border-right: 11.5px solid transparent;
+  z-index: 1;
+  animation: arrowFadeIn 0.3s ease-out 0.15s both;
+}
+
+.arrowTop {
+  top: -14px;
+  left: 16px;
+  border-bottom: 20px solid $color-light-blue;
+  transform-origin: bottom center;
+}
+
+.arrowBottom {
+  bottom: -14px;
+  left: 16px;
+  border-top: 20px solid $color-light-blue;
+  transform-origin: top center;
+}
+
+.tooltipContent {
+  background-color: $color-light-blue;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  position: relative;
+  min-width: auto;
+  max-width: 300px;
+  display: 57px;
+  padding-inline: 16px;
+}
+
+.tooltipIcon {
+  position: absolute;
+  bottom: -30px;
+  width: 95px;
+  height: 95px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: characterBounceIn 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s both;
+  z-index: 1000;
+}
+
+.left {
+  .tooltipIcon {
+    left: -52px;
+    bottom: -40px;
+  }
+}
+
+.right {
+  .tooltipIcon {
+    right: -8px;
+  }
+}
+
+.padding-left {
+  padding-left: 32px !important;
+}
+
+.padding-right {
+  padding-right: 32px !important;
+}
+
+.closeIcon {
+  position: absolute;
+  top: -7px;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.closeRight {
+  right: -7px;
+}
+
+.closeLeft {
+  left: -7px;
+}
+
+.tooltipText {
+  font-size: 12px;
+}

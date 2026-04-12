@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@/typography": ["src/styles/typography.module.scss"]
+    }
+  }
+}

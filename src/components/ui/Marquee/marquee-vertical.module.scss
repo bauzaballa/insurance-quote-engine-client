@@ -1,0 +1,136 @@
+.marqueeContainer {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 150px;
+  contain: layout style;
+
+  // Respect user's motion preferences
+  @media (prefers-reduced-motion: reduce) {
+    .marquee .marqueeContent {
+      animation: none !important;
+    }
+  }
+
+  // Ensure animations are properly initialized
+  &.initialized {
+    .marquee .marqueeContent {
+      animation-play-state: running;
+      // Ensure smooth start
+      animation-fill-mode: forwards;
+    }
+  }
+
+  // Handle non-initialized state
+  &:not(.initialized) {
+    .marquee .marqueeContent {
+      animation-play-state: paused;
+    }
+  }
+
+  // Mobile optimizations
+  @media (max-width: 1023px) {
+    .marquee .marqueeContent {
+      // Shorter animation duration for mobile performance
+      animation-duration: 45s;
+      // Use hardware acceleration
+      will-change: transform;
+      // Reduce motion blur on mobile
+      backface-visibility: hidden;
+      transform: translateZ(0);
+      // Optimize rendering
+      contain: layout style;
+    }
+  }
+
+  &.reverse {
+    .marquee {
+      .marqueeContent {
+        animation: scroll-vertical-reverse 70s linear infinite;
+
+        @media (max-width: 1023px) {
+          animation-duration: 45s;
+        }
+      }
+    }
+  }
+
+  .marquee {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    .marqueeContent {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      animation: scroll-vertical 70s linear infinite;
+
+      // Mobile-specific performance optimizations
+      @media (max-width: 1023px) {
+        animation-duration: 45s;
+        will-change: transform;
+        backface-visibility: hidden;
+        transform: translateZ(0);
+        contain: layout style;
+      }
+
+      .imageItem {
+        width: 100%;
+        flex-shrink: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+          width: 100%;
+          height: auto;
+          max-width: 100%;
+          object-fit: contain;
+
+          // Optimize image loading on mobile
+          @media (max-width: 1023px) {
+            // Prevent layout shifts
+            // aspect-ratio: 1;
+            // Better image rendering
+            image-rendering: optimizeQuality;
+          }
+        }
+      }
+    }
+
+    .marqueeContent:nth-child(2) {
+      animation-delay: -15s; // Half the animation duration for seamless loop
+
+      @media (max-width: 1023px) {
+        animation-delay: -11.25s; // Half of 45s for mobile
+      }
+    }
+  }
+}
+
+@keyframes scroll-vertical {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes scroll-vertical-reverse {
+  0% {
+    transform: translateY(-50%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}

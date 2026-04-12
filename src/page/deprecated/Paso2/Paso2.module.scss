@@ -1,0 +1,239 @@
+@use '@/styles/variables' as v;
+
+.StepContainer {
+  max-width: 1300px;
+  width: 100%;
+  height: auto;
+  max-height: 660px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  border-radius: 24px;
+  padding: 3rem;
+  z-index: 1;
+
+  @media (max-width: 767px) {
+    max-width: 90%;
+    padding: 3rem 1.5rem;
+    //min-height: 660px;
+    height: fit-content;
+    max-height: unset;
+    margin-top: 3rem;
+  }
+
+  @media (min-width: 768px) and (max-width: 1100px) {
+    margin-top: 0;
+    max-width: 75%;
+    height: fit-content;
+    max-height: unset;
+  }
+
+  @media (min-width: 1100px) {
+    height: 660px;
+  }
+}
+
+.stepsHeader {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  box-sizing: border-box;
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  @media (min-width: 768px) and (max-width: 1100px) {
+    align-items: center;
+  }
+}
+
+.logo {
+  height: 54px;
+
+  @media (min-width: 768px) and (max-width: 1100px) {
+    height: 65px;
+  }
+}
+
+.selectContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+  margin-bottom: 6rem;
+
+  h2 {
+    font-size: 20px;
+    color: v.$color-blue-primary;
+    font-weight: 500;
+  }
+
+  @media (max-width: 767px) {
+    gap: 1rem;
+    margin-bottom: 1rem;
+
+    h2 {
+      text-align: center;
+      font-size: 16px;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 1100px) {
+    h2 {
+      text-align: center;
+      width: 85%;
+    }
+  }
+}
+
+.selectRow {
+  display: flex;
+  box-sizing: border-box;
+  width: 100%;
+  gap: 15px;
+
+  @media (max-width: 1100px) {
+    flex-direction: column;
+  }
+
+  @media (min-width: 768px) and (max-width: 1100px) {
+    width: 70%;
+  }
+
+  @media (max-width: 767px) {
+    width: 85%;
+  }
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.label {
+  color: #001514;
+  font-family: Montserrat, system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.input {
+  width: 100%;
+  min-height: 40px;
+  border-radius: 10px;
+  border: 1px solid v.$color-blue-primary;
+  font-family: Montserrat, system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #003049;
+  padding: 10px 14px;
+  transition: border-color 0.3s ease-in-out;
+
+  &::placeholder {
+    color: #9aa5ab80;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: v.$color-blue-primary;
+  }
+}
+
+.errorMsg {
+  font-size: 13px;
+  font-weight: 500;
+  //padding-left: 1rem;
+  color: #d33;
+  margin-top: -2px;
+}
+
+.footerContainer {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+
+  @media (max-width: 767px) {
+    margin-top: 3rem;
+  }
+}
+
+.BtnContinuar {
+  padding: 14px 16px;
+  cursor: pointer;
+  background: white;
+  border: solid 2px v.$color-blue-primary;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+
+  &:hover {
+    background: #1a455b14;
+  }
+
+  @media (max-width: 767px) {
+    padding: 12px 16px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1100px) {
+    padding: 14px 24px;
+  }
+
+  &:first-child {
+    .textButton {
+      display: flex;
+      flex-direction: row-reverse;
+
+      img {
+        transform: rotate(180deg);
+        margin-left: 0;
+        margin-right: 8px;
+      }
+    }
+  }
+}
+
+.textButton {
+  color: v.$color-blue-primary;
+  font-family: Montserrat, system-ui, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 22px;
+  letter-spacing: 1.6px;
+
+  .btnIcon {
+    margin-left: 8px;
+  }
+
+  @media (max-width: 1100px) {
+    font-size: 14px;
+  }
+}
+
+.disable {
+  cursor: not-allowed;
+  opacity: 0.6;
+
+  &:hover {
+    background: white;
+  }
+}
+
+.logosContainer {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

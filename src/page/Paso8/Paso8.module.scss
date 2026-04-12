@@ -1,0 +1,11 @@
+.tooltipIconContainer {
+  width: 128px;
+  bottom: -64px !important;
+  left: -80px !important;
+}
+
+.containerContent {
+  @media (max-width: 768px) {
+    margin-left: 32px;
+  }
+}

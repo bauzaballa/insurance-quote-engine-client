@@ -1,0 +1,59 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  align-items: center;
+  justify-content: center;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    gap: 25px;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+  min-height: 60dvh;
+  height: 100%;
+
+  @media (min-width: 768px) {
+    min-height: 50dvh;
+    gap: 32px;
+  }
+
+  @media (min-width: 1024px) {
+    min-height: 10dvh;
+    height: auto;
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    height: 60dvh;
+  }
+}
+
+.tooltipContainer {
+  width: 231px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 32px;
+  padding-top: 16px;
+
+  @media (min-width: 768px) {
+    padding-top: 0;
+  }
+}
+
+.contentContainer {
+  @media (min-width: 1024px) {
+    gap: 64px;
+  }
+}
+
+.tooltipIcon {
+  width: 115px !important;
+}

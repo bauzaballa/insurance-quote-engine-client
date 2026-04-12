@@ -1,0 +1,28 @@
+stages:
+  - deploy
+
+deploy_react_vite_dev:
+  stage: deploy
+  only:
+    - dev
+  script:
+    - export PATH=$PATH:/root/.nvm/versions/node/v22.14.0/bin
+
+    - echo "🛠 Verificando entorno"
+    - which node
+    - which npm
+    - node -v
+    - npm -v
+
+    - git config --global --add safe.directory /home/Merci/DEV/multicotizador-merci-front-v2
+
+    - cd /home/Merci/DEV/multicotizador-merci-front-v2
+    - git checkout dev
+    - git pull origin dev
+    - npm install
+
+    # Ignorar errores por advertencias ESLint en entorno CI
+    - echo "⚠️ Ejecutando build sin tratar warnings como errores"
+    - CI='' npm run build
+
+    - echo "✅ Build completado localmente en el VPS"

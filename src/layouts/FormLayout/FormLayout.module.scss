@@ -1,0 +1,95 @@
+.contentContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  @media (max-width: 767px) {
+    min-height: 75dvh;
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    min-height: 70dvh;
+  }
+
+  @media (min-width: 1024px) {
+    width: 100%;
+    max-width: 844px;
+  }
+}
+
+.contentContainerWithContinue {
+  @media (max-width: 767px) {
+    min-height: 60dvh;
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    min-height: 55dvh;
+  }
+}
+
+.title {
+  @media (min-width: 767px) {
+    font-size: 20px !important;
+    text-transform: uppercase !important;
+  }
+
+  @media (min-width: 1024px) {
+    text-align: center !important;
+  }
+}
+
+.paddingTop {
+  @media (min-width: 1024px) {
+    padding-top: 112px !important;
+  }
+}
+
+.stepsHeader {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  box-sizing: border-box;
+  //padding: 3rem 3rem 1rem;
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    align-items: center;
+  }
+}
+
+.subtitle {
+  align-self: flex-start;
+  text-transform: none !important;
+  text-align: start !important;
+  font-weight: 400 !important;
+
+  @media (max-width: 767px) {
+    font-size: 12px !important;
+  }
+}
+
+.labelContainer {
+  height: 44px;
+  border-bottom: 1px solid $color-blue-secondary;
+  display: flex;
+  align-items: center;
+}
+
+.labelContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.tabsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  align-items: center;
+}

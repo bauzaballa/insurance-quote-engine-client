@@ -1,0 +1,38 @@
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  height: 32px;
+  position: relative;
+
+  @media (max-width: 767px) {
+    position: relative;
+  }
+}
+
+// .spacer {
+//   display: none;
+
+//   @media (min-width: 768px) {
+//     display: block;
+//     width: 38%;
+//   }
+// }
+
+.tooltipContainer {
+  position: absolute;
+  top: -64px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 248px;
+  min-width: 248px;
+
+  @media (min-width: 767px) {
+    top: -32px;
+    left: 50%;
+    transform: translateX(44%);
+    width: 248px;
+    min-width: 248px;
+  }
+}

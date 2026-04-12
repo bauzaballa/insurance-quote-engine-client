@@ -1,0 +1,21 @@
+.tooltipContainer {
+  width: 231px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 16px;
+
+  @media (min-width: 768px) {
+    padding-top: 0;
+    margin-left: 16px;
+  }
+
+  @media (max-width: 768px) {
+    margin-bottom: 44px;
+  }
+}
+
+.tooltipContainerContent {
+  bottom: -60px;
+  right: -16px !important;
+}

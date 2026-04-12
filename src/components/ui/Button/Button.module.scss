@@ -1,0 +1,58 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer !important;
+  transition: all 0.2s ease;
+  font-family: Montserrat;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 12px;
+  line-height: 100%;
+  letter-spacing: 0.8px;
+  text-align: center;
+
+  &:disabled {
+    background-color: $color-border;
+    cursor: not-allowed;
+  }
+
+  // Default variant
+  &--default {
+    border-radius: 5.58px;
+    background-color: $color-blue-primary;
+    color: #ffffff;
+
+    &:hover:not(:disabled) {
+      background-color: rgba(0, 48, 73, 0.9);
+    }
+
+    &:active:not(:disabled) {
+      background-color: rgba(0, 48, 73, 0.88);
+    }
+  }
+
+  // Outline variant
+  &--outline {
+    border-radius: 5.58px;
+    border: 1px solid $color-blue-primary;
+    background-color: #fff;
+    color: $color-blue-primary;
+
+    &:hover:not(:disabled) {
+      background-color: rgba(0, 48, 73, 0.1);
+    }
+
+    &:active:not(:disabled) {
+      background-color: rgba(0, 48, 73, 0.2);
+    }
+
+    &:disabled {
+      border-color: $color-border;
+      background-color: $color-border;
+      color: $color-border;
+    }
+  }
+}

@@ -1,0 +1,119 @@
+@use '@/styles/variables' as v;
+
+.wrapper {
+  position: relative;
+  top: 0;
+  z-index: v.$z-header;
+  // padding: v.$space-2 v.$space-3;
+  width: 100%;
+  height: fit-content;
+  max-width: 843px;
+  margin: 0 auto;
+  // @media (max-width: 767px) {
+  //   padding: 0;
+  //   width: 80%;
+  // }
+
+  // @media (min-width: 768px) and (max-width: 1100px) {
+  //   max-width: 200px;
+  // }
+}
+
+.topRow {
+  display: grid;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+
+  // @media (max-width: 1100px) {
+  //   display: flex;
+  //   flex-direction: row;
+  //   gap: v.$space-2;
+  // }
+}
+
+.itemContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: v.$radius-pill;
+  background: v.$color-border;
+  color: white;
+  font-weight: 700;
+  font-size: 14px;
+  user-select: none;
+  transition: all 0.3s ease;
+}
+
+.item[data-state='active'],
+.item[data-state='done'] {
+  background: v.$color-primary;
+  color: #fff;
+}
+
+.item[data-state='active'] {
+  transform: scale(1.2);
+  padding-bottom: 1px;
+}
+
+.check {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+
+.connectors {
+  display: grid;
+  align-items: center;
+  gap: 0;
+  position: absolute;
+  bottom: 43%;
+  width: 100%;
+
+  // @media (max-width: 767px) {
+  //   bottom: 45%;
+  //   right: 1rem;
+  // }
+
+  // @media (min-width: 768px) and (max-width: 1100px) {
+  //   width: 80%;
+  // }
+}
+
+.connector {
+  height: 4px;
+  border-radius: 2px;
+  background: v.$color-border;
+  transition: background 0.2s ease;
+}
+
+.connector[data-connected='true'] {
+  background: v.$color-primary;
+}
+
+@keyframes stepGlow {
+  0% {
+    box-shadow: 0 0 1px v.$color-primary;
+  }
+
+  50% {
+    box-shadow: 0 0 4px v.$color-primary;
+  }
+
+  100% {
+    box-shadow: 0 0 1px v.$color-primary;
+  }
+}
+
+.item[data-state='active'] {
+  animation: stepGlow 1.5s ease-in-out infinite;
+}
